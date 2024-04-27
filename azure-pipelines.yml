@@ -1,0 +1,28 @@
+trigger:
+- main
+
+pool:
+  name: ST_FP  # Specify your custom agent pool name
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+- script: npm install
+  displayName: 'Install npm dependencies'
+
+- script: npm run build
+  displayName: 'Build the project'
+
+- script: npm test
+  displayName: 'Run tests'
+
+- script: echo 'Displaying Build Artifacts Directory Contents'
+  displayName: 'List Build Artifacts'
+  workingDirectory: $(Build.ArtifactStagingDirectory)
+
+- publish: $(Build.ArtifactStagingDirectory)
+  artifact: myapp
+  displayName: 'Publish Build Artifacts'
