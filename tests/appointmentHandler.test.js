@@ -60,3 +60,4 @@ describe('Appointment Handler Tests', () => {
         expect(formatDate('not-a-date')).toEqual('Invalid Date');
     });
 });
+// Testing CI Pipeline for Azure
