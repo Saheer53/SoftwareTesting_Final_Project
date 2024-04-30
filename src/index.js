@@ -280,3 +280,4 @@ document.getElementById('submit').addEventListener('click', function(event) {
 
     alert('You have successfully scheduled your visit!');
 });
+//test3
